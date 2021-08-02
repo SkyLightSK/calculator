@@ -1,3 +1,6 @@
 .npm
 node_modules/
 out/
+.idea
+.nyc_output
+.env

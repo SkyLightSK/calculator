@@ -5,7 +5,7 @@ A simple React Calculator.
 ## Local Setup
 
 ```sh
-$ cd react-calculator
+$ cd calculator-react
 ```
 
 ```sh

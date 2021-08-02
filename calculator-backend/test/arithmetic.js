@@ -2,49 +2,49 @@ describe('Arithmetic', function() {
   describe('Validation', function() {
     it('rejects missing operation', function(done) {
       request.get('/arithmetic?operand1=21&operand2=21')
-          .expect(400)
+          .expect(500)
           .end(function(err, res) {
-              expect(res.body).to.eql({ error: "Unspecified operation" });
+              expect(res.body.message).to.eql("Unspecified operation" );
               done();
           });
     });
     it('rejects invalid operation', function(done) {
       request.get('/arithmetic?operation=foobar&operand1=21&operand2=21')
-          .expect(400)
+          .expect(500)
           .end(function(err, res) {
-              expect(res.body).to.eql({ error: "Invalid operation: foobar" });
+              expect(res.body.message).to.eql("Invalid operation: foobar" );
               done();
           });
     });
     it('rejects missing operand1', function(done) {
       request.get('/arithmetic?operation=add&operand2=21')
-          .expect(400)
+          .expect(500)
           .end(function(err, res) {
-              expect(res.body).to.eql({ error: "Invalid operand1: undefined" });
+              expect(res.body.message).to.eql("Invalid operand1: undefined" );
               done();
           });
     });
     it('rejects missing operand2', function(done) {
       request.get('/arithmetic?operation=add&operand1=21')
-          .expect(400)
+          .expect(500)
           .end(function(err, res) {
-              expect(res.body).to.eql({ error: "Invalid operand2: undefined" });
+              expect(res.body.message).to.eql("Invalid operand2: undefined" );
               done();
           });
     });
     it('rejects operands with invalid sign', function(done) {
       request.get('/arithmetic?operation=add&operand1=4.2-1&operand2=4')
-          .expect(400)
+          .expect(500)
           .end(function(err, res) {
-              expect(res.body).to.eql({ error: "Invalid operand1: 4.2-1" });
+              expect(res.body.message).to.eql("Invalid operand1: 4.2-1" );
               done();
           });
     });
     it('rejects operands with invalid decimals', function(done) {
       request.get('/arithmetic?operation=add&operand1=4.2.1&operand2=4')
-          .expect(400)
+          .expect(500)
           .end(function(err, res) {
-              expect(res.body).to.eql({ error: "Invalid operand1: 4.2.1" });
+              expect(res.body.message).to.eql("Invalid operand1: 4.2.1");
               done();
           });
     });

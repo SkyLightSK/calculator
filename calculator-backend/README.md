@@ -8,6 +8,12 @@ A simple node.js Calculator.
 $ cd calculator-backend
 ```
 
+#### Set environment variables:
+
+```bash
+$ cp .env.example .env
+```
+
 ```sh
 $ npm install
 ```
