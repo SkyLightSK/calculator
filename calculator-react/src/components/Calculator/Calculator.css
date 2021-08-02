@@ -1,0 +1,7 @@
+.calculator-container {
+  background-color: var(--calculator-background-color);
+  width: var(--calculator-width);
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+}
